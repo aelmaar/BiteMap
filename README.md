@@ -1,1 +1,1 @@
-# BIteMap
+# BiteMap
