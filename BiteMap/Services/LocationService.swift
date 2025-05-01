@@ -18,7 +18,6 @@ extension CLLocationCoordinate2D: @retroactive Equatable {
 class LocationService: NSObject, CLLocationManagerDelegate {
     private let locationManager = CLLocationManager()
     var currentLocation: CLLocationCoordinate2D?
-    var oldLocation: CLLocationCoordinate2D?
     var authorizationStatus: CLAuthorizationStatus?
 
     override init() {
@@ -48,15 +47,19 @@ class LocationService: NSObject, CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         // Update current user location on every 100 meters
-        if let oldLocation {
-            if calculateDistance(with: oldLocation) < 100 {
+        guard let newCoordinate = locations.last?.coordinate else { return }
+
+        if let oldLocation = currentLocation {
+            let moveDistance = CLLocation(latitude: oldLocation.latitude, longitude: oldLocation.longitude).distance(from: CLLocation(latitude: newCoordinate.latitude, longitude: newCoordinate.longitude))
+            
+            print(String(format: "%.1f", moveDistance))
+            
+            if moveDistance < 100 {
                 return
             }
         }
 
-        print("Updated location")
-        self.currentLocation = locations.last?.coordinate
-        self.oldLocation = currentLocation
+        currentLocation = newCoordinate
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
