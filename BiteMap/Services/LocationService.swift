@@ -52,8 +52,6 @@ class LocationService: NSObject, CLLocationManagerDelegate {
         if let oldLocation = currentLocation {
             let moveDistance = CLLocation(latitude: oldLocation.latitude, longitude: oldLocation.longitude).distance(from: CLLocation(latitude: newCoordinate.latitude, longitude: newCoordinate.longitude))
             
-            print(String(format: "%.1f", moveDistance))
-            
             if moveDistance < 100 {
                 return
             }

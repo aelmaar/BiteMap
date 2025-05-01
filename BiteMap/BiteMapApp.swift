@@ -8,10 +8,20 @@
 import SwiftUI
 import GooglePlacesSwift
 
+extension Bundle {
+    var googleAPIKey: String {
+        guard let key = object(forInfoDictionaryKey: "GOOGLE_API_KEY") as? String else {
+            fatalError("GOOGLE_API_KEY not found in Info.plist")
+        }
+        return key
+    }
+}
+
+
 @main
 struct BiteMapApp: App {
     init() {
-        PlacesClient.provideAPIKey("YOUR_API_KEY_HERE")
+        PlacesClient.provideAPIKey(Bundle.main.googleAPIKey)
     }
 
     var body: some Scene {
