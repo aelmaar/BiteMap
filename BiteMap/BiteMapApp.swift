@@ -6,12 +6,12 @@
 //
 
 import SwiftUI
-import GooglePlaces
+import GooglePlacesSwift
 
 @main
 struct BiteMapApp: App {
     init() {
-        GMSPlacesClient.provideAPIKey("AIzaSyDXV4mS19r9_Y3AeSzt_KU2qVwUN5DJxXY")
+        PlacesClient.provideAPIKey("YOUR_API_KEY_HERE")
     }
 
     var body: some Scene {
