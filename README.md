@@ -23,12 +23,12 @@
 
 - iOS 17+
 - Xcode 15+
-- A Google Maps API key
+- [A Google Maps API key](https://developers.google.com/maps/documentation/places/ios-sdk/cloud-setup)
 
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/aelmaar/bitemap.git
+git clone https://github.com/aelmaar/BiteMap.git
 ```
 ### 2. Open the project
 ```
