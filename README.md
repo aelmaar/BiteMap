@@ -28,7 +28,7 @@
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/bitemap.git
+git clone https://github.com/aelmaar/bitemap.git
 ```
 ### 2. Open the project
 ```
