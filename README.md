@@ -29,10 +29,14 @@
 
 ```bash
 git clone https://github.com/your-username/bitemap.git
+```
+### 2. Open the project
+```
 cd bitemap
+open bitemap.xcodeproj
 ```
 
-### 2. Create a Config.xcconfig File
+### 3. Create a Config.xcconfig File
 
 To provide your Google API key securely:
 
@@ -43,7 +47,7 @@ To provide your Google API key securely:
 GOOGLE_API_KEY=your-google-api-key-here
 ```
 
-3. Run the App
+### 4. Run the App
 ```
 ⌘ + R
 ```
